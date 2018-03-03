@@ -41,6 +41,11 @@ public class RoomTest {
     }
 
     @Test
+    public void canGetGuestsNames__Empty() {
+        assertEquals("", room.getGuestNames());
+    }
+
+    @Test
     public void canGetNumberOfGuests() {
         assertEquals(0, room.getNoOfGuests());
     }

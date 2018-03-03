@@ -52,6 +52,8 @@ public class Hotel {
     }
 
 
+
+
     public void checkinGuest(Guest guest) {
         for (Bedroom item : bedrooms) {
             if (item.getNoOfGuests() < 2) {
