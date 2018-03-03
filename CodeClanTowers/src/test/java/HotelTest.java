@@ -80,4 +80,12 @@ public class HotelTest {
         hotel.checkoutGuest(guest1, bedroom1);
         assertEquals(0, this.bedroom1.getNoOfGuests());
     }
+
+    @Test
+    public void canGetGuestList() {
+        hotel.checkinGuest(guest1);
+        assertEquals("Jeff Bridges; ", bedroom1.getGuestNames());
+    }
+
+
 }

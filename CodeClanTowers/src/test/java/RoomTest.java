@@ -32,6 +32,14 @@ public class RoomTest {
         assertEquals(2, room.getCapacity());
     }
 
+
+    @Test
+    public void canGetGuestsNames() {
+        room.addGuest(guest1);
+        room.addGuest(guest2);
+        assertEquals("Jeff Bridges; Kevin Bacon; ", room.getGuestNames());
+    }
+
     @Test
     public void canGetNumberOfGuests() {
         assertEquals(0, room.getNoOfGuests());
@@ -60,4 +68,6 @@ public class RoomTest {
         room.removeGuest(guest1);
         assertEquals(1, room.getNoOfGuests());
     }
+
+
 }

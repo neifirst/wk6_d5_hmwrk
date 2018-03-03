@@ -5,21 +5,21 @@ public class Hotel {
     private ArrayList<Bedroom> bedrooms;
     private ArrayList<ConferenceRoom> conferenceRooms;
     private ArrayList<DiningRoom> diningRooms;
+    private String list;
 
     public Hotel(ArrayList<Bedroom> bedrooms, ArrayList<ConferenceRoom> conferenceRooms, ArrayList<DiningRoom> diningRooms) {
         this.bedrooms = bedrooms;
         this.conferenceRooms = conferenceRooms;
         this.diningRooms = diningRooms;
+        this.list = list;
     }
 
 
-
     public int getBedroomCount() {
-        if (bedrooms == null)
-        { return 0;
-        }
-        else
-        { return this.bedrooms.size();
+        if (bedrooms == null) {
+            return 0;
+        } else {
+            return this.bedrooms.size();
         }
     }
 
@@ -28,11 +28,10 @@ public class Hotel {
     }
 
     public int getConferenceRoomCount() {
-        if (conferenceRooms == null)
-        { return 0;
-        }
-        else
-        { return this.conferenceRooms.size();
+        if (conferenceRooms == null) {
+            return 0;
+        } else {
+            return this.conferenceRooms.size();
         }
     }
 
@@ -41,11 +40,10 @@ public class Hotel {
     }
 
     public int getDiningRoomCount() {
-        if (diningRooms == null)
-        { return 0;
-        }
-        else
-        { return this.diningRooms.size();
+        if (diningRooms == null) {
+            return 0;
+        } else {
+            return this.diningRooms.size();
         }
     }
 
@@ -54,10 +52,9 @@ public class Hotel {
     }
 
 
-
     public void checkinGuest(Guest guest) {
-        for (Bedroom item: bedrooms) {
-            if (item.getNoOfGuests() < 1) {
+        for (Bedroom item : bedrooms) {
+            if (item.getNoOfGuests() < 2) {
                 item.addGuest(guest);
                 break;
             }
@@ -68,6 +65,10 @@ public class Hotel {
 
     public void checkoutGuest(Guest guest, Bedroom bedroom) {
         bedroom.removeGuest(guest);
+    }
+
+    public String getGuests(Bedroom bedroom) {
+        return bedroom.getGuestNames();
     }
 
 }
