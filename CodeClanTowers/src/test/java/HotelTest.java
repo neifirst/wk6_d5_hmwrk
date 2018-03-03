@@ -29,11 +29,11 @@ public class HotelTest {
         guest2 = new Guest("Kevin Bacon");
         guest3 = new Guest("Shia LaBeouf");
 
-        bedroom1 = new Bedroom(001, 2, 49.95);
-        bedroom2 = new Bedroom(002, 1, 39.95);
-        bedroom3 = new Bedroom(003, 2, 49.95);
-        conferenceRoom = new ConferenceRoom(004, 200, 999.95);
-        diningRoom = new DiningRoom(005, 70);
+        bedroom1 = new Bedroom(1, 2, 49.95);
+        bedroom2 = new Bedroom(2, 1, 39.95);
+        bedroom3 = new Bedroom(3, 2, 49.95);
+        conferenceRoom = new ConferenceRoom(4, 200, 999.95);
+        diningRoom = new DiningRoom(5, 70);
 
         bedrooms = new ArrayList<>();
         conferenceRooms = new ArrayList<>();
@@ -87,5 +87,14 @@ public class HotelTest {
         assertEquals("Jeff Bridges; ", bedroom1.getGuestNames());
     }
 
+    @Test
+    public void canSeeVacantList() {
+        hotel.checkinGuest(guest1);
+        assertEquals("Room 2; Room 3; ", hotel.seeVacant());
+    }
 
+    @Test
+    public void canAddPaymentForMultipleNights() {
+        assertEquals(149.85, hotel.getTotal(bedroom1, 3), 0.01);
+    }
 }

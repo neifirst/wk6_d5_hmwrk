@@ -6,13 +6,13 @@ public abstract class Room {
     private int roomNo;
     private int capacity;
     private ArrayList<Guest> guests;
-    private String list;
+    private String guestList;
 
     public Room(int roomNo, int capacity) {
         this.roomNo = roomNo;
         this.capacity = capacity;
         this.guests = new ArrayList<>();
-        this.list = list;
+        this.guestList = guestList;
     }
 
     public int getRoomNo() {
@@ -23,16 +23,12 @@ public abstract class Room {
         return capacity;
     }
 
-    public ArrayList<Guest> getGuests() {
-        return guests;
-    }
-
     public String getGuestNames() {
-        list = "";
+        guestList = "";
         for (Guest item : this.guests) {
-             list = list + item.getName() + "; ";
+             guestList = guestList + item.getName() + "; ";
         }
-        return list;
+        return guestList;
     }
 
     public int getNoOfGuests() {

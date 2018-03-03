@@ -15,7 +15,7 @@ public class RoomTest {
 
     @Before
     public void setUp() throws Exception {
-        room = new Bedroom(001, 2, 49.95);
+        room = new Bedroom(1, 2, 49.95);
         guest1 = new Guest("Jeff Bridges");
         guest2 = new Guest("Kevin Bacon");
         guest3 = new Guest("Shia LaBeouf");
@@ -24,7 +24,7 @@ public class RoomTest {
 
     @Test
     public void hasRoomNo() {
-        assertEquals(001, room.getRoomNo());
+        assertEquals(1, room.getRoomNo());
     }
 
     @Test
