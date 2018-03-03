@@ -12,6 +12,8 @@ public class Hotel {
         this.diningRooms = diningRooms;
     }
 
+
+
     public int getBedroomCount() {
         if (bedrooms == null)
         { return 0;
@@ -50,4 +52,23 @@ public class Hotel {
     public void addDiningRoom(DiningRoom diningRoom) {
         this.diningRooms.add(diningRoom);
     }
+
+
+
+    public void checkinGuest(Guest guest) {
+        for (Bedroom item: bedrooms) {
+            if (item.getNoOfGuests() < 1) {
+                item.addGuest(guest);
+                break;
+            }
+
+        }
+
+    }
+
+    public void checkoutGuest(Guest guest, Bedroom bedroom) {
+        bedroom.removeGuest(guest);
+    }
+
 }
+
