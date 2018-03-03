@@ -15,7 +15,7 @@ public class RoomTest {
 
     @Before
     public void setUp() throws Exception {
-        room = new Bedroom(001, 2);
+        room = new Bedroom(001, 2, 49.95);
         guest1 = new Guest("Jeff Bridges");
         guest2 = new Guest("Kevin Bacon");
         guest3 = new Guest("Shia LaBeouf");
