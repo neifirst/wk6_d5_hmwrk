@@ -38,14 +38,14 @@ public class RoomTest {
     }
 
     @Test
-    public void canCheckinGuest() {
+    public void canAddGuest() {
         room.addGuest(guest1);
         room.addGuest(guest2);
         assertEquals(2, room.getNoOfGuests());
     }
 
     @Test
-    public void cantCheckinGuest() {
+    public void cantAddGuest() {
         room.addGuest(guest1);
         room.addGuest(guest2);
         room.addGuest(guest3);
@@ -53,7 +53,7 @@ public class RoomTest {
     }
 
     @Test
-    public void canCheckoutGuest() {
+    public void canRemoveGuest() {
         room.addGuest(guest1);
         room.addGuest(guest2);
         assertEquals(2, room.getNoOfGuests());
