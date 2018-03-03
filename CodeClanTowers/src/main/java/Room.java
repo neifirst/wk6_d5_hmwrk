@@ -31,6 +31,12 @@ public abstract class Room {
     }
 
     public void addGuest(Guest guest) {
-        this.guests.add(guest);
+        if (this.getNoOfGuests() < this.getCapacity())
+        { this.guests.add(guest);
+        }
+    }
+
+    public void removeGuest(Guest guest) {
+        this.guests.remove(guest);
     }
 }

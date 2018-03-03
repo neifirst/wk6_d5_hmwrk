@@ -10,6 +10,7 @@ public class RoomTest {
     Room room;
     Guest guest1;
     Guest guest2;
+    Guest guest3;
     ArrayList<Guest> guests;
 
     @Before
@@ -17,6 +18,7 @@ public class RoomTest {
         room = new Bedroom(001, 2);
         guest1 = new Guest("Jeff Bridges");
         guest2 = new Guest("Kevin Bacon");
+        guest3 = new Guest("Shia LaBeouf");
         guests = new ArrayList<>();
     }
 
@@ -40,5 +42,22 @@ public class RoomTest {
         room.addGuest(guest1);
         room.addGuest(guest2);
         assertEquals(2, room.getNoOfGuests());
+    }
+
+    @Test
+    public void cantCheckinGuest() {
+        room.addGuest(guest1);
+        room.addGuest(guest2);
+        room.addGuest(guest3);
+        assertEquals(2, room.getNoOfGuests());
+    }
+
+    @Test
+    public void canCheckoutGuest() {
+        room.addGuest(guest1);
+        room.addGuest(guest2);
+        assertEquals(2, room.getNoOfGuests());
+        room.removeGuest(guest1);
+        assertEquals(1, room.getNoOfGuests());
     }
 }
