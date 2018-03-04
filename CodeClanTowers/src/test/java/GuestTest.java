@@ -16,4 +16,16 @@ public class GuestTest {
     public void hasName() {
         assertEquals("Jeff Bridges", guest.getName());
     }
+
+    @Test
+    public void hasZeroDuration() {
+        assertEquals(0, guest.getDuration());
+    }
+
+    @Test
+    public void hasZeroBill() {
+        assertEquals(0.00, guest.getBill(), 0.01);
+    }
+
+
 }

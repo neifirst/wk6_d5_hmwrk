@@ -7,6 +7,7 @@ public class Hotel {
     private ArrayList<DiningRoom> diningRooms;
     private String vacantList;
 
+
     public Hotel(ArrayList<Bedroom> bedrooms, ArrayList<ConferenceRoom> conferenceRooms, ArrayList<DiningRoom> diningRooms) {
         this.bedrooms = bedrooms;
         this.conferenceRooms = conferenceRooms;
@@ -54,10 +55,11 @@ public class Hotel {
 
 
 
-    public void checkinGuest(Guest guest) {
+    public void checkinGuest(Guest guest, int duration) {
         for (Bedroom item : bedrooms) {
-            if (item.getNoOfGuests() < 1) {
-                item.addGuest(guest);
+            if (item.getNoOfGuests() < 1 ) {
+                item.addGuest(guest, duration);
+                guest.setBill(item.getCost() * duration);
                 break;
             }
 
@@ -67,6 +69,10 @@ public class Hotel {
 
     public void checkoutGuest(Guest guest, Bedroom bedroom) {
         bedroom.removeGuest(guest);
+    }
+
+    public String getGuestList(Bedroom bedroom) {
+        return bedroom.getGuestNames();
     }
 
     public String seeVacant() {
@@ -79,9 +85,6 @@ public class Hotel {
         return vacantList;
     }
 
-    public double getTotal(Bedroom bedroom, int duration) {
-        return bedroom.getCost() * duration;
-    }
 
 }
 

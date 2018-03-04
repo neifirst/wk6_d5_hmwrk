@@ -1,4 +1,5 @@
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public abstract class Room {
@@ -7,6 +8,7 @@ public abstract class Room {
     private int capacity;
     private ArrayList<Guest> guests;
     private String guestList;
+    DecimalFormat numberFormat = new DecimalFormat("#.00");
 
     public Room(int roomNo, int capacity) {
         this.roomNo = roomNo;
@@ -26,7 +28,7 @@ public abstract class Room {
     public String getGuestNames() {
         guestList = "";
         for (Guest item : this.guests) {
-             guestList = guestList + item.getName() + "; ";
+             guestList = guestList + item.getName() + ", " + item.getDuration() + " night(s), bill: £" + numberFormat.format(item.getBill()) + "; ";
         }
         return guestList;
     }
@@ -40,9 +42,10 @@ public abstract class Room {
         }
     }
 
-    public void addGuest(Guest guest) {
+    public void addGuest(Guest guest, int duration) {
         if (this.getNoOfGuests() < this.getCapacity())
         { this.guests.add(guest);
+        guest.setDuration(duration);
         }
     }
 
@@ -50,3 +53,5 @@ public abstract class Room {
         this.guests.remove(guest);
     }
 }
+
+

@@ -48,6 +48,8 @@ public class HotelTest {
         hotel.addDiningRoom(diningRoom);
     }
 
+
+
     @Test
     public void hasBedrooms() {
         assertEquals(3, hotel.getBedroomCount());
@@ -61,21 +63,23 @@ public class HotelTest {
         assertEquals(1, hotel.getDiningRoomCount());
     }
 
+
+
     @Test
     public void canCheckInGuest() {
-        this.bedroom1.addGuest(guest1);
+        this.bedroom1.addGuest(guest1, 1);
         assertEquals(1, this.bedroom1.getNoOfGuests());
     }
 
     @Test
     public void hotelCanCheckinGuest() {
-        hotel.checkinGuest(guest1);
+        hotel.checkinGuest(guest1, 1);
         assertEquals(1, this.bedroom1.getNoOfGuests());
     }
 
     @Test
     public void hotelCanCheckoutGuest() {
-        hotel.checkinGuest(guest1);
+        hotel.checkinGuest(guest1, 1);
         assertEquals(1, this.bedroom1.getNoOfGuests());
         hotel.checkoutGuest(guest1, bedroom1);
         assertEquals(0, this.bedroom1.getNoOfGuests());
@@ -83,18 +87,15 @@ public class HotelTest {
 
     @Test
     public void canGetGuestList() {
-        hotel.checkinGuest(guest1);
-        assertEquals("Jeff Bridges; ", bedroom1.getGuestNames());
+        hotel.checkinGuest(guest1, 3);
+        assertEquals("Jeff Bridges, 3 night(s), bill: £149.85; ", bedroom1.getGuestNames());
     }
 
     @Test
     public void canSeeVacantList() {
-        hotel.checkinGuest(guest1);
+        hotel.checkinGuest(guest1, 1);
         assertEquals("Room 2; Room 3; ", hotel.seeVacant());
     }
 
-    @Test
-    public void canAddPaymentForMultipleNights() {
-        assertEquals(149.85, hotel.getTotal(bedroom1, 3), 0.01);
-    }
+
 }

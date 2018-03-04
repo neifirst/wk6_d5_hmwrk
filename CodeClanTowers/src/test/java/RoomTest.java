@@ -33,11 +33,12 @@ public class RoomTest {
     }
 
 
+
+
     @Test
-    public void canGetGuestsNames() {
-        room.addGuest(guest1);
-        room.addGuest(guest2);
-        assertEquals("Jeff Bridges; Kevin Bacon; ", room.getGuestNames());
+    public void canGetDuration() {
+        room.addGuest(guest1, 1);
+        assertEquals(1, guest1.getDuration());
     }
 
     @Test
@@ -52,23 +53,23 @@ public class RoomTest {
 
     @Test
     public void canAddGuest() {
-        room.addGuest(guest1);
-        room.addGuest(guest2);
+        room.addGuest(guest1, 1);
+        room.addGuest(guest2, 1);
         assertEquals(2, room.getNoOfGuests());
     }
 
     @Test
-    public void cantAddGuest() {
-        room.addGuest(guest1);
-        room.addGuest(guest2);
-        room.addGuest(guest3);
+    public void cantAddGuest__Full() {
+        room.addGuest(guest1, 1);
+        room.addGuest(guest2, 1);
+        room.addGuest(guest3, 1);
         assertEquals(2, room.getNoOfGuests());
     }
 
     @Test
     public void canRemoveGuest() {
-        room.addGuest(guest1);
-        room.addGuest(guest2);
+        room.addGuest(guest1, 1);
+        room.addGuest(guest2, 1);
         assertEquals(2, room.getNoOfGuests());
         room.removeGuest(guest1);
         assertEquals(1, room.getNoOfGuests());
